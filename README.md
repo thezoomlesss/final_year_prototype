@@ -31,4 +31,5 @@ predefined port (at the moment, port 3000).
 * **App2.js** - This is the main file of the node app made to display a website created in React. It also handles all the
 database queries that the website could use. In this context, it will display a list of vehicles available in a certain warehouse
  
+All the code present in these files is work of the author and only the author. 
 For any queries please contact the author at: C15745405@mydit.ie or hamudazabad@gmail.com
