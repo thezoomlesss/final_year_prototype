@@ -22,6 +22,7 @@ import easygui
 from PIL import Image
 from pytesseract import image_to_string
 
+
 import urllib2
 import requests
 
@@ -108,21 +109,24 @@ def post_to_server(text_output):
     # Uncomment this part if the server was configured properly
 
     # Url of the server where it expects a POST request containing the number plate and the date it arrrived
-    url = 'http://159.69.217.98:3000'
-    # r = requests.post(url, data={'"numberplate': text_output, 'date': ' 1:07 PM 12/04/2018'})
+    # url = 'http://159.69.217.98:1337'
+    url = 'http://159.69.217.98:1337/adddb?parameter=test&second=test2'
+    
+    # r = requests.post(url, data={'parameter': "test1", 'second': 'test2'})
+    r = requests.post(url)
     # Answer from the server
-    # print(r.status_code, r.reason)
-    # print(text_output + " sent to the server")
+    print(r.status_code, r.reason)
+    print(text_output + " sent to the server")
 
 
 def main():
-    # Reading in the image using the easygui library
+    Reading in the image using the easygui library
     filename = easygui.fileopenbox()
     image = cv2.imread(filename)
     roi_2 = extract_roi(image)
     text_output = roi_to_text(roi_2)
     post_to_server(text_output)
-
-    cv2.waitKey(0)
+    quit()
+    # cv2.waitKey(0)
 if __name__== "__main__":
     main()

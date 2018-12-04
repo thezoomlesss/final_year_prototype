@@ -27,6 +27,8 @@ predefined port (at the moment, port 3000).
 * **express2.js** - This is the file that sets the website react + node app to listen to a certain port (subject to change a lot due to the reverse proxy)
 
 * **App1.js** - This is the main file of the node app made to control the database data writing and the POST request
+Currently, it opens on port 1337 of the server and it connects to the AWS RDS instance. 
+You can run OCR_Prototype.py to test the POST method with parameters but the node app must be running on the server at the same time, which it currently doesn't do 24/7
 
 * **App2.js** - This is the main file of the node app made to display a website created in React. It also handles all the
 database queries that the website could use. In this context, it will display a list of vehicles available in a certain warehouse
