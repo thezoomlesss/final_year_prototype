@@ -14,6 +14,8 @@
 This issue has been raised with Jonathan Mccarthy, the author's mentor, and he approved
 a continued development of the prototype until the time of presentation (6th of December 2018)
 
+[![Video Prototype](https://img.youtube.com/vi/fod-BSnIUUs&fbclid=IwAR2q89Kb4W4asvtwjHhUHl-_hPeDMknlNhB5NkwMF3I5IcD2R8wPAV8jYjI/0.jpg)](https://www.youtube.com/watch?v=fod-BSnIUUs&fbclid=IwAR2q89Kb4W4asvtwjHhUHl-_hPeDMknlNhB5NkwMF3I5IcD2R8wPAV8jYjI)
+
 #### Prototype contents
 * **OCR_Prototype.py** - This would simulate the code present on the minicomputer placed at the entrance of a warehouse
 The code present will preprocess the sample image after the GUI appears (please use sample_image.jpg) after which 
