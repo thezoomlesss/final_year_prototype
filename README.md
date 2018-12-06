@@ -22,16 +22,36 @@ predefined port (at the moment, port 3000).
 
 * **sample_img.jpg** - This is the image used when running the python OCR prototype
 
-* **express1.js** - This is the file that sets the node app to listen to a certain port (subject to change a lot due to the reverse proxy)
+* **App1.js** - This is the main file of the node app made to control the database data writing and reading for the get and POST requests
+Currently, it opens on port 1337 port of the server on the /adddb and /website paths and it connects to the AWS RDS instance through the details contained in a hidden json file. 
 
-* **express2.js** - This is the file that sets the website react + node app to listen to a certain port (subject to change a lot due to the reverse proxy)
+#### Explanation
+* There is an AWS RDS instance running MySQL holding all the data for us
 
-* **App1.js** - This is the main file of the node app made to control the database data writing and the POST request
-Currently, it opens on port 1337 of the server and it connects to the AWS RDS instance. 
-You can run OCR_Prototype.py to test the POST method with parameters but the node app must be running on the server at the same time, which it currently doesn't do 24/7
+* The python script will accept an image from a vehicle and extract its number plate
 
-* **App2.js** - This is the main file of the node app made to display a website created in React. It also handles all the
-database queries that the website could use. In this context, it will display a list of vehicles available in a certain warehouse
- 
+* After extracting a nubmer plate, it will send it to the server with a predefined warehouse id (1) and a set date(3:00 PM 12/6/2018)
+The date is hardcoded only for testing purposes
+
+* The server will react to the POST request and will get the location of the warehouse (lat and long) by using the warehouse id
+Then it will get the id of the number plate since it knows the number plate value
+After that it will get the vehicle id since it knows the id of the number plate
+Finally, it will get the id of the last location record of that vehicle
+After gathering all the information, it will run a query which updates the last location's latitude, longitude and date
+
+* The website, upon being opened(or refreshed) will retrieve the new data into the table
+
+#### How to execute it
+
+* First you should open the website at http://159.69.217.98:1337/website
+If the page doesn't respond it means that the node app is currently not running (contact the author, details at the bottom)
+
+* If the page responded, pay attention to the last 3 columns
+You can run OCR_Prototype.py to test the POST method and OCR from the number plate
+Please use the sample image, other number plates won't work since they are not registered in the database
+
+* After running the python script, refresh the website and notice how the values have changed (unless the database already held the same values)
+
+
 All the code present in these files is work of the author and only the author. 
 For any queries please contact the author at: C15745405@mydit.ie or hamudazabad@gmail.com
